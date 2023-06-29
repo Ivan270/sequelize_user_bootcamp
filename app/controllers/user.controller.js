@@ -1,9 +1,21 @@
 import User from '../models/User.model.js';
+import Bootcamp from '../models/Bootcamp.model.js';
 
 export const findAll = async (req, res) => {
 	try {
 		// ¡¡¡INCLUIR BOOTCAMPS!!!
-		const users = await User.findAll();
+		const users = await User.findAll({
+			include: [
+				{
+					model: Bootcamp,
+					as: 'bootcamp',
+					attributes: { exclude: ['createdAt', 'updatedAt'] },
+					through: {
+						attributes: [],
+					},
+				},
+			],
+		});
 		res.status(200).send({ code: 200, data: users });
 	} catch (error) {
 		res

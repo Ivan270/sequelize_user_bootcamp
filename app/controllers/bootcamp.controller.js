@@ -1,9 +1,21 @@
 import Bootcamp from '../models/Bootcamp.model.js';
+import User from '../models/User.model.js';
 
 //////////////////LISTAR TODOS LOS BOOTCAMP///////////////////////
 export const findAll = async (req, res) => {
 	try {
-		let bootcamps = await Bootcamp.findAll();
+		let bootcamps = await Bootcamp.findAll({
+			include: [
+				{
+					model: User,
+					as: 'user',
+					attributes: { exclude: ['cue'] },
+					through: {
+						attributes: [],
+					},
+				},
+			],
+		});
 		res.send({
 			code: 200,
 			data: bootcamps,
@@ -64,4 +76,36 @@ export const findById = async (req, res) => {
 	}
 };
 
-// export const addUser = async (req, res) => {};
+export const addUser = async (req, res) => {
+	try {
+		let userId = req.params.id;
+		let { id } = req.body;
+		console.log(id);
+		let foundBootcamp = await Bootcamp.findByPk(id);
+		let foundUser = await User.findByPk(userId);
+		if (!foundBootcamp) {
+			return res.status(400).send({
+				code: 400,
+				message: `Bootcamp con ID:${id} no existe en la base de datos`,
+			});
+		}
+		if (!foundUser) {
+			return res.status(400).send({
+				code: 400,
+				message: `Usuario con ID:${userId} no existe en la base de datos`,
+			});
+		}
+		let addedUser = await foundBootcamp.addUser(foundUser);
+		res.status(200).send({
+			code: 200,
+			data: addedUser,
+			message: `Usuario ${foundUser.id} agregado a Bootcamp ${foundBootcamp.id}`,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).send({
+			code: 500,
+			messege: 'No se pudo añadir el usuario al bootcamp',
+		});
+	}
+};
