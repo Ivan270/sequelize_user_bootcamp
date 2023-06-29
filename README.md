@@ -17,3 +17,13 @@ Realizar las siguientes consultas:
 - Actualizar el usuario según su id; por ejemplo: actualizar el usuario con id=1 por Pedro Sánchez.
 
 - Eliminar un usuario por id; por ejemplo: el usuario con id=1.
+
+///// controladores bootcamp/////
+Para el Bootcamp,construirlos siguientes controladores:
+HECHO •Crear y guardar un nuevo Bootcampllamado createBootcamp.
+
+DUDA •Agregar un Usuario al Bootcamp llamado addUser.
+
+HECHO •Obtener los Bootcamppor id llamado findById.
+
+DUDA •Obtener todos los Usuarios incluyendo los Bootcamp llamado findAll.
