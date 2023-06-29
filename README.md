@@ -18,6 +18,36 @@ Realizar las siguientes consultas:
 
 - Eliminar un usuario por id; por ejemplo: el usuario con id=1.
 
+* Actualizar el usuario según su id; por ejemplo: actualizar el usuario con id=1 por Pedro Sánchez.
+
+```http
+
+<!-- PUT -->
+
+http://localhost:3000/api/v1/users/1
+
+```
+
+```json
+{
+	"firstName": "Pedro",
+
+	"lastName": "Sánchez",
+
+	"email": "mateo.diaz@correo.com"
+}
+```
+
+- Eliminar un usuario por id; por ejemplo: el usuario con id=1.
+
+```http
+
+<!-- DELETE -->
+
+http://localhost:3000/api/v1/users/1
+
+```
+
 ///// controladores bootcamp/////
 Para el Bootcamp,construirlos siguientes controladores:
 HECHO •Crear y guardar un nuevo Bootcampllamado createBootcamp.

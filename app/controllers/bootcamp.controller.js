@@ -45,7 +45,12 @@ export const findById = async (req, res) => {
 		let { id } = req.params;
 		// let { nombre, email, password } = req.body;
 		let bootcampConsultado = await Bootcamp.findByPk(id);
-
+		if (!bootcampConsultado) {
+			return res.status(400).send({
+				code: 400,
+				message: `Bootcamp con ID:${id} no existe en la base de datos`,
+			});
+		}
 		res.status(200).send({
 			code: 200,
 			data: bootcampConsultado,
@@ -58,3 +63,5 @@ export const findById = async (req, res) => {
 		});
 	}
 };
+
+// export const addUser = async (req, res) => {};

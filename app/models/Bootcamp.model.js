@@ -9,7 +9,7 @@ const Bootcamp = sequelize.define('bootcamps', {
 	cue: {
 		type: DataTypes.INTEGER,
 		allowNull: false,
-		validation: {
+		validate: {
 			min: 5,
 			max: 10,
 			isInt: true,
