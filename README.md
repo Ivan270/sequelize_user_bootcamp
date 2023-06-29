@@ -4,7 +4,7 @@ Dado el siguiente modelo relacional:
 
 ![db](./public/db.png)
 
-Realizar las siguientes consultas:
+## Realizar las siguientes consultas:
 
 - Consultando el Bootcamp por id, incluyendo los usuarios.
 
