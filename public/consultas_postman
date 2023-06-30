@@ -110,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"lastName\": \"ApellidoEditado\"\r\n}",
+					"raw": "{\r\n    \"firstName\":\"Pedro\",\r\n    \"lastName\": \"Sanchez\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,7 +118,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/user/id/2",
+					"raw": "http://localhost:3000/api/v1/user/id/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -129,7 +129,7 @@
 						"v1",
 						"user",
 						"id",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -204,6 +204,38 @@
 						"bootcamp",
 						"id",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bootcamp addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bootcampId\":1,\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/bootcamp/new-user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"bootcamp",
+						"new-user",
+						""
 					]
 				}
 			},

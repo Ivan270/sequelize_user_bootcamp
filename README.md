@@ -6,17 +6,15 @@ Dado el siguiente modelo relacional:
 
 ## Realizar las siguientes consultas:
 
-### Puedes usar las consultas para postman,
+### Puedes usar las consultas precargadas en postman
 
 Las encuentras en:
 
 ```
 
-/app/public/consultas_postman
+/public/consultas_postman
 
 ```
-
-![db](./public/consultas_postman)
 
 - Consultando el Bootcamp por id, incluyendo los usuarios.
 
@@ -50,7 +48,7 @@ http://localhost:3000/api/v1/user/id/1
 
 ```
 
-- Listar los usuarios con sus Bootcamp.
+- Listar los usuarios con sus Bootcamp
 
 ```http
 
