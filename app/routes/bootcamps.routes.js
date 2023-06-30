@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/', findAll);
 router.post('/', createBootcamp);
 router.get('/id/:id', findById);
-router.post('/user/:id', addUser);
+router.post('/new-user/', addUser);
 // router.put("/id/:id", updateBootcamps);
 // router.delete("/id/:id", deleteBootcamps);
 

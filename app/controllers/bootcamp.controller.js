@@ -95,16 +95,14 @@ export const findById = async (req, res) => {
 
 export const addUser = async (req, res) => {
 	try {
-		let userId = req.params.id;
-
-		let { id } = req.body;
-		console.log(id);
-		let foundBootcamp = await Bootcamp.findByPk(id);
+		let { bootcampId, userId } = req.body;
+		console.log(userId);
+		let foundBootcamp = await Bootcamp.findByPk(bootcampId);
 		let foundUser = await User.findByPk(userId);
 		if (!foundBootcamp) {
 			return res.status(400).send({
 				code: 400,
-				message: `Bootcamp con ID:${id} no existe en la base de datos`,
+				message: `Bootcamp con ID:${bootcampId} no existe en la base de datos`,
 			});
 		}
 		if (!foundUser) {

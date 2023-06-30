@@ -10,6 +10,12 @@ Dado el siguiente modelo relacional:
 
 Las encuentras en:
 
+```
+
+/app/public/consultas_postman
+
+```
+
 ![db](./public/consultas_postman)
 
 - Consultando el Bootcamp por id, incluyendo los usuarios.
