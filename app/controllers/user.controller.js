@@ -3,7 +3,6 @@ import Bootcamp from '../models/Bootcamp.model.js';
 
 export const findAll = async (req, res) => {
 	try {
-		// ¡¡¡INCLUIR BOOTCAMPS!!!
 		const users = await User.findAll({
 			include: [
 				{
@@ -16,6 +15,12 @@ export const findAll = async (req, res) => {
 				},
 			],
 		});
+		if (users.length == 0) {
+			return res.status(400).send({
+				code: 400,
+				message: `No hay usuarios en la base de datos`,
+			});
+		}
 		res.status(200).send({ code: 200, data: users });
 	} catch (error) {
 		res
@@ -28,7 +33,18 @@ export const findUserById = async (req, res) => {
 	try {
 		let { id } = req.params;
 		// ¡¡¡INCLUIR BOOTCAMPS DEL USUARIO!!!
-		let user = await User.findByPk(id);
+		let user = await User.findByPk(id, {
+			include: [
+				{
+					model: Bootcamp,
+					as: 'bootcamp',
+					attributes: { exclude: ['createdAt', 'updatedAt'] },
+					through: {
+						attributes: [],
+					},
+				},
+			],
+		});
 		if (!user) {
 			res.status(400).send({
 				code: 400,

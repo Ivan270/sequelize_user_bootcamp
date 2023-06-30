@@ -16,11 +16,18 @@ export const findAll = async (req, res) => {
 				},
 			],
 		});
+		if (bootcamps.length == 0) {
+			return res.status(400).send({
+				code: 400,
+				message: `No hay bootcamps en la base de datos`,
+			});
+		}
 		res.send({
 			code: 200,
 			data: bootcamps,
 		});
 	} catch (error) {
+		console.log(error);
 		res.status(500).send({
 			code: 500,
 			message: 'Error al consultar el curso de bootcamp',
@@ -56,7 +63,17 @@ export const findById = async (req, res) => {
 	try {
 		let { id } = req.params;
 		// let { nombre, email, password } = req.body;
-		let bootcampConsultado = await Bootcamp.findByPk(id);
+		let bootcampConsultado = await Bootcamp.findByPk(id, {
+			include: [
+				{
+					model: User,
+					as: 'user',
+					through: {
+						attributes: [],
+					},
+				},
+			],
+		});
 		if (!bootcampConsultado) {
 			return res.status(400).send({
 				code: 400,
@@ -79,6 +96,7 @@ export const findById = async (req, res) => {
 export const addUser = async (req, res) => {
 	try {
 		let userId = req.params.id;
+
 		let { id } = req.body;
 		console.log(id);
 		let foundBootcamp = await Bootcamp.findByPk(id);
@@ -95,6 +113,7 @@ export const addUser = async (req, res) => {
 				message: `Usuario con ID:${userId} no existe en la base de datos`,
 			});
 		}
+
 		let addedUser = await foundBootcamp.addUser(foundUser);
 		res.status(200).send({
 			code: 200,
