@@ -4,7 +4,19 @@ Dado el siguiente modelo relacional:
 
 ![db](./public/db.png)
 
-## Realizar las siguientes consultas:
+## Setup del proyecto
+
+```
+npm install
+```
+
+### Compilando para desarrollo
+
+```
+npm run dev
+```
+
+## Contenido del proyecto:
 
 ### Puedes importar el respaldo de la base de datos
 
@@ -25,6 +37,8 @@ Las encuentras en:
 /public/consultas_postman
 
 ```
+
+## Consultas
 
 - Consultando el Bootcamp por id, incluyendo los usuarios.
 
