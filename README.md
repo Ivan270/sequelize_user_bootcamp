@@ -6,7 +6,17 @@ Dado el siguiente modelo relacional:
 
 ## Realizar las siguientes consultas:
 
-### Puedes usar las consultas precargadas en postman
+### Puedes importar el respaldo de la base de datos
+
+Lo encuentras en:
+
+```
+
+/public/bkp_database.sql
+
+```
+
+### Puedes usar las consultas precargadas e importarlas en Postman
 
 Las encuentras en:
 
