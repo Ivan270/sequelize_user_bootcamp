@@ -16,6 +16,14 @@ npm install
 npm run dev
 ```
 
+### Importante: Se utilizan variables de entorno
+
+Debes configurar tu archivo .env en la raíz del proyecto que coincidan con las utilizadas en:
+
+```
+/app/config/database.config.js
+```
+
 ## Contenido del proyecto:
 
 ### Puedes importar el respaldo de la base de datos
@@ -42,7 +50,7 @@ Las encuentras en:
 
 - Consultando el Bootcamp por id, incluyendo los usuarios.
 
-```http
+```bash
 
 <!-- GET -->
 
@@ -53,7 +61,7 @@ http://localhost:3000/api/v1/bootcamp/id/1
 
 - Listar todos los Bootcamp con sus usuarios.
 
-```http
+```bash
 
 <!-- GET -->
 
@@ -64,7 +72,7 @@ http://localhost:3000/api/v1/bootcamp
 
 - Consultar un usuario por id, incluyendo los Bootcamp.
 
-```http
+```bash
 
 <!-- GET -->
 
@@ -74,7 +82,7 @@ http://localhost:3000/api/v1/user/id/1
 
 - Listar los usuarios con sus Bootcamp
 
-```http
+```bash
 
 <!-- GET -->
 
@@ -84,7 +92,7 @@ http://localhost:3000/api/v1/user
 
 - Actualizar el usuario según su id; por ejemplo: actualizar el usuario con id=1 por Pedro Sánchez.
 
-```http
+```bash
 
 <!-- PUT -->
 
@@ -102,7 +110,7 @@ http://localhost:3000/api/v1/user/id/1
 
 - Eliminar un usuario por id; por ejemplo: el usuario con id=1.
 
-```http
+```bash
 
 <!-- DELETE -->
 

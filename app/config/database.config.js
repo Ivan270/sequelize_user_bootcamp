@@ -1,7 +1,13 @@
 import Sequelize from 'sequelize';
+import 'dotenv/config';
 
-const sequelize = new Sequelize('db_bootcamp', 'postgres', '2103', {
-	host: 'localhost',
+const db = process.env.DB_DATABASE;
+const user = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+const host = process.env.DB_HOST;
+
+const sequelize = new Sequelize(db, user, password, {
+	host: host,
 	dialect: 'postgres',
 });
 
