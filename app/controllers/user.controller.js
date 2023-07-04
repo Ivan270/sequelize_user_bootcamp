@@ -21,7 +21,10 @@ export const findAll = async (req, res) => {
 				message: `No hay usuarios en la base de datos`,
 			});
 		}
-		res.status(200).send({ code: 200, data: users });
+		// res.status(200).send({ code: 200, data: users });
+		res.render('users', {
+			users,
+		});
 	} catch (error) {
 		res
 			.status(500)
@@ -51,9 +54,13 @@ export const findUserById = async (req, res) => {
 				message: `Usuario con ID:${id} no existe en la base de datos`,
 			});
 		}
-		res
-			.status(200)
-			.send({ code: 200, data: user, message: 'Usuario encontrado' });
+		// res
+		// 	.status(200)
+		// 	.send({ code: 200, data: user, message: 'Usuario encontrado' });
+		console.log(user.dataValues);
+		res.render('user', {
+			user: user.dataValues,
+		});
 	} catch (error) {
 		res.status(500).send({ code: 500, message: 'No se pudo buscar usuario' });
 	}

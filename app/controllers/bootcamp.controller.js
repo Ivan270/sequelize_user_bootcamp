@@ -22,9 +22,14 @@ export const findAll = async (req, res) => {
 				message: `No hay bootcamps en la base de datos`,
 			});
 		}
-		res.send({
-			code: 200,
-			data: bootcamps,
+		// res.send({
+		// 	code: 200,
+		// 	data: bootcamps,
+		// });
+		// console.log(bootcamps.dataVal);
+		bootcamps.forEach((bootcamp) => console.log(bootcamp.dataValues.user));
+		res.render('bootcamps', {
+			bootcamps,
 		});
 	} catch (error) {
 		console.log(error);
@@ -80,10 +85,17 @@ export const findById = async (req, res) => {
 				message: `Bootcamp con ID:${id} no existe en la base de datos`,
 			});
 		}
-		res.status(200).send({
-			code: 200,
-			data: bootcampConsultado,
-			message: `Bootcamp ID: ${id} se muestra con éxito`,
+		// res.status(200).send({
+		// 	code: 200,
+		// 	data: bootcampConsultado,
+		// 	message: `Bootcamp ID: ${id} se muestra con éxito`,
+		// });
+		// console.log(bootcampConsultado.dataValues.user);
+		bootcampConsultado.dataValues.user.forEach((usuario) =>
+			console.log(usuario.dataValues)
+		);
+		res.render('bootcamp', {
+			bootcamp: bootcampConsultado,
 		});
 	} catch (error) {
 		res.status(500).send({

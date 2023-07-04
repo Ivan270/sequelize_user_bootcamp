@@ -10,7 +10,7 @@ const main = async () => {
 		await sequelize.authenticate();
 		console.log('Nos hemos conectado con éxito.');
 		await sequelize.sync({ force: false, alter: true }); //force: false cuando está en producción.
-		let PORT = 3000;
+		let PORT = 3001;
 		app.listen(PORT, () =>
 			console.log('Servidor escuchando en http://localhost:' + PORT)
 		);
